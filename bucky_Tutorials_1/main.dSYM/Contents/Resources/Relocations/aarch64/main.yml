@@ -1,7 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/pablodemederos/Dev/Learning/c/bucky_Tutorials_1/main'
-relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x10000315C, symSize: 0x9F8 }
-  - { offsetInCU: 0x60, offset: 0x60, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x10000315C, symSize: 0x9F8 }
-...
