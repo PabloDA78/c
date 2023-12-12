@@ -418,7 +418,7 @@ int main(int argc, const char * argv[]) {
     char book[20];
     char * pBook = book;
     
-    fgets(pBook,20,stdin);//Take input from the keyboard, if they enter more thatn ethe specified amount, it copies it;
+    fgets(pBook,20,stdin);//Take input from the keyboard, if they enter more thatn ethe specified amount, it cuts it;
     puts(pBook);// solo da 20 espacios
     
     return 0;
