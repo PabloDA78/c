@@ -10,6 +10,9 @@
 
 void printSomething(void); //Declaring the function
 void convertToDollars(float euro);
+int calculateBonus(int yearsWorked);
+void passByValue(int j);
+void passByAddress(int *j);
 
 int main(int argc, const char * argv[]) {
     
@@ -175,7 +178,7 @@ int main(int argc, const char * argv[]) {
     
 /*
  
- Passing Arguments to Functionsb
+ Passing Arguments to Functions
  
  */
     //At the bottom of the file, we created the following function (Commented)
@@ -198,9 +201,33 @@ int main(int argc, const char * argv[]) {
  Return Values
 */
     
+    int pablosYears=5;
+    int pabloBonus= calculateBonus(pablosYears);// Esto "returns" el valor bonus que se calcula en la funcion calculateBonus
+    int pedrosYears=6;
+    int pedroBonus = calculateBonus(pedrosYears);
+    int juanYears=15;
+    int juanBonus = calculateBonus(juanYears);
+    
+    printf("Pablo gets: $%d, Pedro gets: $%d, Juan gets: $%d\n",pabloBonus,pedroBonus,juanBonus);
+    printf("Se puede hacer directo, Pablo gets: $%d\n",calculateBonus(pablosYears));
+    
+    
+    
+/*
+ Pass by Address/Reference vs Pass by Value
+ */
+    
+    int variable1=20;
+    
+    passByValue(variable1);//toma la variable1
+    printf("Passing by value, variable1 ahora es: %d\n",variable1); //Aqui no le pasa nada.solo paso el valor como tal, se hacen los calculos y luego la variable toma su valor original
+    passByAddress(&variable1);//Toma la direccion de la variable, se le pone un "&"
+    printf("Passing by address, variable1 ahora es: %d\n",variable1); //Aqui si se cambia la variable
     
     
     return 0;
+    
+    
 }
 
 void printSomething(void){
@@ -212,5 +239,24 @@ void convertToDollars(float euro){
     float usd = euro*1.37;
     printf("\n%.02f Euros - %0.2f USD\n",euro,usd);
     return;
+    
+    }
+
+int calculateBonus(int yearsWorked){ //int instead of void because it will return an integer... the rest is the same as before
+    int bonus = yearsWorked*250;
+    
+    if(yearsWorked>10){
+        bonus+=1000;
+    }
+    return bonus;
 }
 
+void passByValue(int j){
+    j=99;
+    return;
+}
+
+void passByAddress(int *j){
+    *j=88;
+    return;
+}
