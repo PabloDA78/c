@@ -36,6 +36,33 @@ public:
     }
 };
 
+class Developer: public Employee {//This is going to be a child to the parent class "Employee", we put public to inherit properties in public
+    //Developer has now all the properties of the Emplyee class
+    public:
+        string FavProgrammingLang;
+        Developer(string name, string company, int age, string favProgrammingLang)
+        :Employee(name,company,age)//Add constructor of the base class
+        {
+            FavProgrammingLang=favProgrammingLang;
+        }
+        void FixBug(){
+            std::cout<<Name<<" fixed a bug for "<<Company<<" using "<<FavProgrammingLang<<std::endl;
+        }
+};
+
+class Teacher: public Employee{ //Public lets it access the methods in Employee
+ public:
+    string Subject;
+    Teacher(string name, string company, int age, string subject)
+    :Employee(name,company,age)
+    {
+        Subject=subject;
+    }
+    void PrepareLesson(){
+        std::cout<<Name<<" is preparing a "<<Subject<<" lesson."<<std::endl;
+    }
+};
+
 class Student { //Used for encapsulations
 
 private:
@@ -124,8 +151,16 @@ int main() {
     //Abstraction  
     //Hiding complex things behind a procedure that makes those things look simple
 
+    //Inheritance
+    //Base/Super/Parent Class has Derived/Sub/Child Class
+    //Childs inherits members from the Parent Class
+
+    Developer developer1=Developer("Joselo","Oracle",27,"C++");
+    developer1.FixBug();
+    developer1.AskForPromotion();
 
 
-
-
+    Teacher teacher1=Teacher("Jack","Cool School",35,"History");
+    teacher1.PrepareLesson();
+    teacher1.AskForPromotion();
 }
