@@ -34,6 +34,9 @@ public:
             std::cout<<Name<<", sorry no promotion for you!"<<std::endl;
         
     }
+    virtual void Work(){ //Virtual means.. check if there is implementation of this fuction in my derived /child classes, if yes...execute that function instead
+        std::cout<<Name<<" is checking email, task backlog, performing tasks"<<std::endl;
+    }
 };
 
 class Developer: public Employee {//This is going to be a child to the parent class "Employee", we put public to inherit properties in public
@@ -48,6 +51,9 @@ class Developer: public Employee {//This is going to be a child to the parent cl
         void FixBug(){
             std::cout<<Name<<" fixed a bug for "<<Company<<" using "<<FavProgrammingLang<<std::endl;
         }
+        void Work(){//this method exists int the employee parent class but with a diferent statement
+        std::cout<<Name<<" is writing "<<FavProgrammingLang<<" code "<<std::endl;
+        }
 };
 
 class Teacher: public Employee{ //Public lets it access the methods in Employee
@@ -60,6 +66,9 @@ class Teacher: public Employee{ //Public lets it access the methods in Employee
     }
     void PrepareLesson(){
         std::cout<<Name<<" is preparing a "<<Subject<<" lesson."<<std::endl;
+    }
+    void Work(){ //this method exists int the employee parent class but with a diferent statement
+        std::cout<<Name<<" is teaching "<<Subject<<" class "<<std::endl;
     }
 };
 
@@ -163,4 +172,17 @@ int main() {
     Teacher teacher1=Teacher("Jack","Cool School",35,"History");
     teacher1.PrepareLesson();
     teacher1.AskForPromotion();
+
+    //Polymorphisim
+    //The ability of an objetc or a method to have many forms
+    developer1.Work(); //This prints the method directly in the developer class
+    teacher1.Work(); //This prints the method directly in the teacher class
+
+    //Create a pointer of type employee
+    Employee * e1=&developer1;//The pointer holds a reference to the developer1
+    Employee * e2=&teacher1;//The pointer holds a reference to the teacher1
+
+    e1->Work(); //The arrow is when you want to access members using a pointer 
+    e2->Work(); //This will access directly the Employee class and print the method in that class unless we make the "Work()" method virtual, which we have...
+
 }
