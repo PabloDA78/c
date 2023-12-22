@@ -184,5 +184,5 @@ int main() {
 
     e1->Work(); //The arrow is when you want to access members using a pointer 
     e2->Work(); //This will access directly the Employee class and print the method in that class unless we make the "Work()" method virtual, which we have...
-
+    std::cout<<&developer1<<std::endl;
 }
