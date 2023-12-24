@@ -133,19 +133,4 @@ int main(){
     cin>>guessNum;
     //Ternary operator
     (hostNum==guessNum)?cout<< "Correct!"<<endl:cout<< "Failed!"<<endl;//Condition ? if true:if false */
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
 }
