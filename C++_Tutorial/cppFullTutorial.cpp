@@ -126,14 +126,15 @@ int main(){
     //Ternary Conditional
     //Guessing Game
     
-    int hostNum,guessNum;
+    /* int hostNum,guessNum;
     cout<<"Host: "<<endl;
     cin>>hostNum;
     system("clear");
     cin>>guessNum;
     //Ternary operator
-    (hostNum==guessNum)?cout<< "Correct!"<<endl:cout<< "Failed!"<<endl;//Condition ? if true:if false
+    (hostNum==guessNum)?cout<< "Correct!"<<endl:cout<< "Failed!"<<endl;//Condition ? if true:if false */
 
+    
     
 
 
