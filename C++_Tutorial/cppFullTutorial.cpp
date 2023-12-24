@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string> // Include the necessary header for string
 #include <iomanip>
+#include <cstdlib> 
+#include <stdlib.h>
 
 using std::string;
 using namespace std;
@@ -66,6 +68,81 @@ int main(){
     //in ascii
     cout<<"ASCII Message: "<<int(c1)<<" "<<int(c2)<<" "<<int(c3)<<" "<<int(c4)<<" "<<int(c5)<<endl;
     
+    //IF/Else Statements
+    //User enters a number(int), we have to say if it is odd or even
+    
+    /* int oddOrEven;
+    cout<<"Enter a number: "<<endl;
+
+    cin>>oddOrEven;
+    if (oddOrEven%2==0)
+    {
+        cout<<"Your choice "<<oddOrEven<<" is even!"<<endl;
+    } else{
+        cout<<"Your choice "<<oddOrEven<<" is odd!"<<endl;
+    }
+    */
+
+    //Nested If Statement
+    //Check the type of triangle
+    //Users enteres the lenghts of the sides sideA,sideB,sideC
+    //Program writes if the triangle is equilateral,isoceles or scalene
+
+    
+    int sideA=3,sideB=3,sideC=4;
+    cout<<"The sides are: "<<sideA<<","<<sideB<<",and "<<sideC<<endl;
+    //To get it from user
+    // cin>>sideA>>sideB>>sideC;
+    if (sideA==sideB && sideB==sideC)
+    {
+        cout<<"This is an equilateral triangle"<<endl;
+    }else if (sideA==sideB || sideB==sideC){
+       cout<<"This is an isoceles triangle"<<endl; 
+    }else{
+        cout<<"This is an scalene triangle"<<endl; 
+    }
+    
+
+    //OPERATORS
+    //Arithmetic +,-,/,*,%
+    //Increment ++
+    //Decrement --
+    //Less than <, Greater than >, Less than or equal to <=, Greater than or equal to >=
+    //Equal to ==, Not Equal to !=
+    // And &&, Or ||, Not !
+    //Operators of asignment: Assign with =, Add and assign +=, Substract and assigne -=, Multiply and assigne *=, Divide and assigne /=
+    //Modulate and assign /=
+    
+
+    //Swapping the value of two variables
+
+    int varOne=1,varTwo=2;
+    cout<<"Var 1 is: "<<varOne<<" and Var 2 is : "<<varTwo<<endl;
+    int temp=varOne;
+    varOne=varTwo;
+    varTwo=temp;
+    cout<<"Var 1 is now: "<<varOne<<" and Var 2 is now: "<<varTwo<<endl;
+    
+    //Ternary Conditional
+    //Guessing Game
+    
+    int hostNum,guessNum;
+    cout<<"Host: "<<endl;
+    cin>>hostNum;
+    system("clear");
+    cin>>guessNum;
+    //Ternary operator
+    (hostNum==guessNum)?cout<< "Correct!"<<endl:cout<< "Failed!"<<endl;//Condition ? if true:if false
+
+    
+
+
+
+
+
+
+
+
 
 
 
