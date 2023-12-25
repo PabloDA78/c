@@ -220,7 +220,88 @@ int main(){
     
     //For Loops
     //Calculating the factorial of a number
+    number1=6;
+    int i;
+    int factorial=1;
+    for (i = 1; i <= number1; i++)
+    {
+       factorial*=i;
+    }
+    cout<<"The factorial is "<<factorial<<endl;
 
+    //Nesting Loops
+    //Enter 3 grades between 1 and 5 and return the average grade
+/*     i=0;
+    int grade;
+    float gradeSum=0;
+    for (i = 0; i < 3; i++)
+    {
+        do
+        {
+            cout<<"Enter grade "<<i+1<<":"<<endl;
+            cin>>grade;
+        } while (grade<1 || grade>5);
+         gradeSum+=grade;
+    }
+    cout<<"Your GPA is "<<float(gradeSum/3)<<endl;
+ */
+
+    //Nested For Loops
+    //Multiplication Table
+
+    int j;
+    for (i = 1; i <= 10; i++)
+    {
+        cout<<"Tabla del "<<i<<endl<<endl;
+        for (j = 1; j <= 10; j++)
+        {
+            cout<<i<<"*"<<j<<"="<<i*j<<endl<<endl;
+        }  
+    }
+
+    //Program for drawing a rectangle
+    int height=5,width=5;
+
+    for (i = 0; i < height; i++)
+    {
+        for (j = 0; j < width; j++)
+        {
+          cout<<setw(3)<<"+";
+        }
+        cout<<endl;
+    }
+
+    cout<<endl;
+    
+    //Drawing triangles and inverted triangles
+    int lenght=5;
+    for (i = 1; i <= lenght; i++)
+    {
+        for (j = 1; j <= i; j++)
+        {
+            cout<<setw(3)<<"*";
+        }
+        cout<<endl;
+        
+    }
+    //Inverted Triangles
+    //Code Reusability, flipping the code
+
+    cout<<endl;
+    lenght=5;
+    for (i = lenght; i >= 1; i--)
+    {
+        for (j = i; j >= 1; j--)
+        {
+            cout<<setw(3)<<".";
+        }
+        cout<<endl;
+        
+    }
+
+    
+    
+    
     
     
     
