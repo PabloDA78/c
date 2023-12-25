@@ -185,7 +185,46 @@ int main(){
             cout<<"Your digit has: "<<counter<<" digits"<<endl;
     }
 
+    //While Loops part 3
+    //Reversing a number
+    number1 = 12345678;
+    int reverseNumber=0;
+    while(number1!=0){
+        reverseNumber*=10;
+        int lastDigit = number1 % 10;//This returns the last digit
+        number1 /=10;
+        reverseNumber+=lastDigit;
+    }
+    cout<<"The reversed number is: "<<reverseNumber<<endl;
+
+    //Do While Loops
+    //Validating a Pin Number
     
+    int userPin=1234, pin=1234, errorCounter=0;
+    do
+    {
+        cout<<"Enter you pin: "<<endl;
+        //cin>>pin;
+        if(pin==userPin){
+            cout<<"Welcome!"<<endl;
+            break;
+        }else{
+            cout<<"Incorrect pin, you have "<<2-errorCounter<<" more attempt(s)."<<endl;
+            errorCounter++;
+        }
+    } while (errorCounter<3);
+    if (errorCounter==3)
+    {
+        cout<<"Your account has been blocked"<<endl;
+    }
+    
+    //For Loops
+    //Calculating the factorial of a number
+
+    
+    
+    
+
 
 
 
