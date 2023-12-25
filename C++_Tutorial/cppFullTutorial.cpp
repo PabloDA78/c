@@ -133,4 +133,61 @@ int main(){
     cin>>guessNum;
     //Ternary operator
     (hostNum==guessNum)?cout<< "Correct!"<<endl:cout<< "Failed!"<<endl;//Condition ? if true:if false */
-}
+
+
+    //Switch Statements 
+    //Building a calculator
+
+    /* float num1,num2,answer;
+    char operation;
+    cin>>num1>>operation>>num2;
+
+    switch (operation)
+    {
+        case '-': cout<<num1<<operation<<num2<<"="<<num1-num2<<endl;break;
+        case '+': cout<<num1<<operation<<num2<<"="<<num1+num2<<endl;break;
+        case '*': cout<<num1<<operation<<num2<<"="<<num1*num2<<endl;break;
+        case '/': cout<<num1<<operation<<num2<<"="<<num1/num2<<endl;break;
+        case '%': 
+            bool isNum1Int,isNum2Int;
+            isNum1Int=((int)num1==num1);
+            isNum2Int=((int)num2==num2);
+            if(isNum1Int==true && isNum2Int==true){
+                cout<<num1<<operation<<num2<<"="<<(int)num1%(int)num2<<endl;break;
+            }else{
+                cout<<"Syntax Error "<<endl;
+            }break;
+        default: cout<<"Invalid Entry "<<endl;
+    }
+    */
+
+    //While loops
+    //Write out all the numbers divisible by 3 betwen 100-500
+    int counter=100;
+    while(counter<=500){
+        if(counter%3==0 && counter%5==0){
+            cout<<counter<<" ";
+        }
+        counter++;
+    }
+    cout<<endl;
+       
+    //While loops part two: Counting the digits of a number
+    int number1=44334;
+    if(number1==0){
+        cout<<"You entered zero\n" ;
+    }else{
+        int counter=0;
+        while(number1>0){
+            number1 /= 10;
+            counter++;
+        }  
+            cout<<"Your digit has: "<<counter<<" digits"<<endl;
+    }
+
+    
+
+
+
+   
+    }
