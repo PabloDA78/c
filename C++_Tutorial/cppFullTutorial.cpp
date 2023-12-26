@@ -6,6 +6,8 @@
 
 using std::string;
 using namespace std;
+void functionOne();//Declaring the function... prototype it.
+void introduceMe(string name, string city, int age=0); //age=0 is for the parameter to have a default, has to be at the end of the list.
 
 int main(){
     //Print
@@ -298,16 +300,38 @@ int main(){
         cout<<endl;
         
     }
-
     
-    
-    
-    
-    
-    
+    //Functions
+    functionOne(); //This executes the function declared after the main;
 
 
+    //Functions with parameters or arguments
+    introduceMe("Pablo","Mexio City",44);//You give the parametor asked
+    string nameTwo = "Pedro";
+    string cityTwo = "Guadalajara";
+    introduceMe(nameTwo,cityTwo);
+
+    //Function Return Statement 
+    //Program for checking prime numbers
 
 
    
     }
+
+    //Functnions
+
+    void functionOne(){ //return type  name (parameters)
+        cout<<"Calling function from function one"<<endl;
+    }
+
+    //Functions with parameters, Default parameters
+    void introduceMe(string name, string city,int age){ //return type, name (parameter type variable for that parametor) 
+     cout<<"My name is "<<name<<", and I am from "<<city<<".";
+     if(age!=0){ //If the user doesn´t provide an age, the following will not run.
+     cout<<" I am "<<age<<" years old."<<endl;
+     }
+    }
+
+     //Function Return Statement 
+    //Program for checking prime numbers
+    
