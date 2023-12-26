@@ -8,6 +8,7 @@ using std::string;
 using namespace std;
 void functionOne();//Declaring the function... prototype it.
 void introduceMe(string name, string city, int age=0); //age=0 is for the parameter to have a default, has to be at the end of the list.
+bool isPrime(int numberCheck);
 
 int main(){
     //Print
@@ -313,25 +314,53 @@ int main(){
 
     //Function Return Statement 
     //Program for checking prime numbers
+    int numberTwo=887;
+    bool isPrimeFlag=isPrime(numberTwo);//Here the program returns the "isPrimeFlag" bool variable and assigns it to the new "isPrimeFlag here"
+    if (isPrimeFlag==true){
+            cout<<endl<<"Your number is a prime number"<<endl;
+        }else{
+            cout<<endl<<"Your number is not a prime number"<<endl;
+        }
 
-
+    //Code reusability
+    //Checking all the numbers bewteen 1 and 1000
+    cout<<"This are prime numbers:"<<endl;
+    for (i = 1; i <= 1000; i++)
+    {
+        bool isPrimeFlag=isPrime(i);
+        if (isPrimeFlag==true)
+        {
+            cout<<i<<" , ";
+        }
+        
+    }
+    
    
     }
 
-    //Functnions
+            //OUTSIDE OF MAIN
+            //Functnions
 
-    void functionOne(){ //return type  name (parameters)
-        cout<<"Calling function from function one"<<endl;
-    }
+            void functionOne(){ //return type  name (parameters)
+                cout<<"Calling function from function one"<<endl;
+            }
 
-    //Functions with parameters, Default parameters
-    void introduceMe(string name, string city,int age){ //return type, name (parameter type variable for that parametor) 
-     cout<<"My name is "<<name<<", and I am from "<<city<<".";
-     if(age!=0){ //If the user doesn´t provide an age, the following will not run.
-     cout<<" I am "<<age<<" years old."<<endl;
-     }
-    }
+            //Functions with parameters, Default parameters
+            void introduceMe(string name, string city,int age){ //return type, name (parameter type variable for that parametor) 
+            cout<<"My name is "<<name<<", and I am from "<<city<<".";
+            if(age!=0){ //If the user doesn´t provide an age, the following will not run.
+            cout<<" I am "<<age<<" years old."<<endl;
+            }
+            }
 
-     //Function Return Statement 
-    //Program for checking prime numbers
-    
+            //Function Return Statement 
+            //Program for checking prime numbers
+            bool isPrime(int numberCheck){
+                for (int i = 2; i < numberCheck; i++)
+                {
+                    if(numberCheck%i==0){
+                        return false; //This returns breaks the loop
+                    }  
+                } 
+                return true; //If none fulfilled the condition, it moved down to return true
+            }
