@@ -25,7 +25,6 @@ int main(int argc, const char * argv[]) {
     puts(book2);
 
     
-    
 /*
  
  Using the HEAP and Malloc
