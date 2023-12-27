@@ -9,7 +9,13 @@ using namespace std;
 void functionOne();//Declaring the function... prototype it.
 void introduceMe(string name, string city, int age=0); //age=0 is for the parameter to have a default, has to be at the end of the list.
 bool isPrime(int numberCheck);
+void showMenu();
+template<typename T>
+void mySwap(T& a, T& b);
+int recursiveSum(int m , int n);
+int recursiveFactorial(int a);
 
+//Link to the video : https://www.youtube.com/watch?v=GQp1zzTwrIg&list=PL43pGnjiVwgTg9IGE0ijSMDxVG66Lhye2&index=1
 int main(){
     //Print
     std::cout<<"Hello World 2"<<std::endl; // This will output, print Hello World 2
@@ -325,19 +331,92 @@ int main(){
     //Code reusability
     //Checking all the numbers bewteen 1 and 1000
     cout<<"This are prime numbers:"<<endl;
-    for (i = 1; i <= 1000; i++)
+    int counter2=0;
+    for (i = 1; i <= 100; i++)
     {
         bool isPrimeFlag=isPrime(i);
         if (isPrimeFlag==true)
         {
-            cout<<i<<" , ";
-        }
-        
+            cout<<i<<"  ";
+            counter2++; //Counts how many prime numbers are there
+        } 
     }
-    
-   
-    }
+    cout<<endl<<"There are "<<counter2<<" prime numbers"<<endl;
 
+    //Building an ATM App
+    //Functionalities: Check balance, deposit, withdraw, show menu
+
+ 
+/*     int option;
+    double balance=500;
+    cout<<endl;
+    do{
+        showMenu();
+        cout<<"Please choose an option: ";
+        cin>>option;
+        system("clear");
+        switch (option)
+        {
+        case 1:
+            cout<<"Balance: $"<<fixed<<setprecision(2)<<balance<<endl;
+            break;
+        case 2:
+            cout<<"Deposit amount:";
+            double depositAmount;
+            cin>>depositAmount;
+            balance+=depositAmount;
+            break;
+
+        case 3:
+            cout<<"Withdraw amount:";
+            double withdrawAmount;
+            cin>>withdrawAmount;
+            if(withdrawAmount<=balance){
+                balance-=withdrawAmount;
+            }else{
+                cout<<"Insufficient Balance"<<endl;
+            }
+            break;
+        default:
+            break;
+        }
+    }while(option!=4);
+ */
+
+    //Generic Functions & Templates. Using the same function for various data types, 
+    //Since the funtion is generic, it works with int and char the same
+    int a1=5,b1=7;
+    cout<<a1<<" - "<<b1<<endl;
+    mySwap(a1,b1);
+    cout<<a1<<" - "<<b1<<endl;
+    char char1='c',char2='d';
+    cout<<char1<<" - "<<char2<<endl;
+    mySwap(char1,char2);
+    cout<<char1<<" - "<<char2<<endl;
+
+    //Recursion and Recursive Functions
+    //Recursion is a function invokes itself
+    //Task: Sum of numbers between m and n
+
+    //Solution with loops
+
+/*     int m=2,n=4;
+    int sumOfNumber=0;
+    for(i=m;i<=n;i++){
+        sumOfNumber+=i;
+    }
+    cout<<sumOfNumber<<endl; */
+
+    //Using recursion (See function def at the bottom)
+    cout<<"Sum is: "<<recursiveSum(2,4)<<endl;
+    cout<<"Factorial is: "<<recursiveFactorial(9)<<endl;
+
+    //Introduction to Pointers
+
+
+
+
+    }
             //OUTSIDE OF MAIN
             //Functnions
 
@@ -352,10 +431,10 @@ int main(){
             cout<<" I am "<<age<<" years old."<<endl;
             }
             }
-
             //Function Return Statement 
             //Program for checking prime numbers
             bool isPrime(int numberCheck){
+
                 for (int i = 2; i < numberCheck; i++)
                 {
                     if(numberCheck%i==0){
@@ -363,4 +442,30 @@ int main(){
                     }  
                 } 
                 return true; //If none fulfilled the condition, it moved down to return true
+            }   
+            void showMenu(){
+                cout<<"**********MENU**********"<<endl;
+                cout<<"1. Check balance"<<endl;
+                cout<<"2. Deposit"<<endl;
+                cout<<"3. Withdraw"<<endl;
+                cout<<"4. Exit"<<endl;
+                cout<<"************************"<<endl;
             }
+            template<typename T>//T makes the it a generic function.You have to pass arguments by reference, not value
+            void mySwap(T& a, T& b) {
+                T temp = a;
+                a = b;
+                b = temp;
+            }
+            int recursiveSum(int m,int n){
+                if(m == n)//Base case to stop from an infinite recursion
+                    return m;
+                return m + recursiveSum(m+1,n);
+            }
+            int recursiveFactorial(int a){
+                int b=1;
+                if(a==b)
+                    return a;
+                return a * recursiveFactorial(a-1);
+            }
+    
