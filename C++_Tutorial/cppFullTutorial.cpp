@@ -14,6 +14,12 @@ template<typename T>
 void mySwap(T& a, T& b);
 int recursiveSum(int m , int n);
 int recursiveFactorial(int a);
+void printNumber(int* numberPtr);
+void printLetter(char* letterPtr);
+void print(void*pointer,char type);
+int getMin(int array[],int size);
+int getMax(int array[],int size);
+void getMinAndMax(int array[],int size, int* min,int* max);
 
 //Link to the video : https://www.youtube.com/watch?v=GQp1zzTwrIg&list=PL43pGnjiVwgTg9IGE0ijSMDxVG66Lhye2&index=1
 int main(){
@@ -411,12 +417,103 @@ int main(){
     cout<<"Sum is: "<<recursiveSum(2,4)<<endl;
     cout<<"Factorial is: "<<recursiveFactorial(9)<<endl;
 
-    //Introduction to Pointers
 
+
+    //Introduction to Pointers
+    int var1=5; 
+    cout << &var1 << endl; //This shows the addres of the variable var1 
+    //Creating a pointer
+    int * ptr = &var1;
+    cout << ptr <<endl; //Printing out the value of the pointer which is the address of the variable var1
+    //Access the value stored in that address the pointer is holding
+    // Dereferencing a pointer
+    cout << *ptr << endl; //Prints "5" the value of the var1
+    //Changing the value in address the pointer is holding
+    *ptr=10; //THis means access this memory addres and store the new value;
+    cout << *ptr << endl; //Prints "10", the new value stored in the addres
+    cout << var1 << endl; // The variable is also holding 10 as a value;
+
+
+    //Void pointers
+    //It can hold the addres of any data type
+    //You cant derreference a void pointer directly
+    
+    //Different function for different datatypes in this case
+    int number5=5;
+    char letter='a';
+    printNumber(&number5);//Since it has to have a pointer as an argument, we pass the address of number5
+    printLetter(&letter);//Since it has to have a pointer as an argument, we pass the address of letter
+    //Lets make a void pointer for any data type
+    print(&number5,'i'); //specify de 'i' for integer
+    print(&letter,'c'); //same function runs for both data types
+
+    //Pointers and arrays
+
+    int luckyNumbers[5] = {3,7,8,15,17};
+    cout<<luckyNumbers<<endl; //This prints an addres, which is the addres of the first element of the array
+    cout<<&luckyNumbers[0]<<endl;//Checking that the above is true. The name of the array behaves as a pointer
+    cout<<luckyNumbers[2]<<endl; //With the index, we "derreference" the pointer and get the value in that index spot
+    cout<<*(luckyNumbers+2)<<endl;  //This is the same as the above
+
+    //Entering values in an array
+
+    /* int newArray[5];
+    for (i = 0; i < 5; i++)
+    {
+        cout<<"Number: ";
+        cin>>newArray[i];
+    }
+    for (i = 0; i < 5; i++)
+    {
+        cout<<*(newArray+i)<<" ";
+    } cout<<endl; */
+
+
+    // Return multiple values from a function using pointers
+    
+    int arrayTwo[5]={1,-2,33,-4,5};
+    cout<<"The minimum value is: "<<getMin(arrayTwo,5)<<endl;//Calls the function and gets the min value of arrayTwo
+    cout<<"The max value is: "<<getMax(arrayTwo,5)<<endl;//Calls the function and gets the min value of arrayTwo
+    //Now...use only one function to get both min and max
+    int min=arrayTwo[0],max=arrayTwo[0];
+    getMinAndMax(arrayTwo,5,&min,&max);//Since it receives a pointer, we put &min and &max to pass the addres of those variables
+    //Passing by addres wil modify the values of min and max
+    cout<<"Min is: "<<min<<endl<<"Max is: "<<max<<endl;
+
+    
+    //Dynamic Arrays
+    //Dynamic memory allocation
+    //New allocates memory
+    //Delete frees memory
+
+    /* 
+    int size;
+    cout << "Size: ";
+    cin >> size;
+    int * myArray=new int [size];//This new keyword allocated an array of the size the user determined
+    for (int i = 0; i < size; i++)
+    {
+        cout<<"Array["<<i<<"]: ";
+        cin>>myArray[i]; 
+    }
+    for (int i = 0; i < size; i++)
+    {
+        cout<<myArray[i]<<" ";
+    }cout<<endl;
+    // You need to free the memory with delete
+    delete[]myArray;
+    myArray=NULL; // Assign the value of null, it will not point to any address  */
+
+
+
+    //Multidimensional Dynamic Arrays
+        
 
 
 
     }
+
+
             //OUTSIDE OF MAIN
             //Functnions
 
@@ -468,4 +565,62 @@ int main(){
                     return a;
                 return a * recursiveFactorial(a-1);
             }
-    
+            void printNumber(int* numberPtr){
+                cout<<*numberPtr<<endl;
+            }
+            void printLetter(char* letterPtr){
+                cout<<*letterPtr<<endl;
+            }
+            void print(void*pointer,char type){//Print any data type
+                switch (type)
+                {
+                case 'i'://Handle int pointer 
+                    cout<<*(int*)pointer<<endl; //Type cast to integer pointer
+                    break;
+                case 'c':  cout<<*(char*)pointer<<endl;
+                    break;
+                case 'd': cout<<*(double*)pointer<<endl;
+                    break;
+                case 'f': cout<<*(float*)pointer<<endl;
+                    break;
+                }
+            }
+
+            int getMin(int array[],int size){
+                int min=array[0];
+                for (int i = 1; i < size; i++)
+                {
+                    if(array[i]<min){
+                        min=array[i];
+                    }
+                }
+                return min;
+            }
+            int getMax(int array[],int size){
+                int max=array[0];
+                for (int i = 1; i < size; i++)
+                {
+                    if(array[i]>max){
+                        max=array[i];
+                    }
+                }
+                return max;
+            }
+            void getMinAndMax(int array[],int size, int* min,int* max){ //receiving the pointer to int min and int max numbers
+                for (int i = 1; i < size; i++)
+                {
+                    if(array[i]>*max){ //have to derreference the pointer to get the value
+                        *max=array[i];
+                    }
+                    if(array[i]<*min){
+                        *min=array[i];
+                    }
+                }
+            }
+
+
+
+
+
+
+
