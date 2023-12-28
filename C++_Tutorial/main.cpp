@@ -4,7 +4,8 @@
 using std::string;
 
 // Classes: The building block of Object-Oriented Programming or OOP
-    // Class - User-defined data type
+// Class - User-defined data type
+
 class AbstractEmployee{ //Abstraction Lesson 
     virtual void AskForPromotion()=0;//virtual and =0 makes it mandatory
 };
@@ -59,8 +60,7 @@ class Developer: public Employee {//This is going to be a child to the parent cl
 class Teacher: public Employee{ //Public lets it access the methods in Employee
  public:
     string Subject;
-    Teacher(string name, string company, int age, string subject)
-    :Employee(name,company,age)
+    Teacher(string name, string company, int age, string subject):Employee(name,company,age)
     {
         Subject=subject;
     }
@@ -186,3 +186,4 @@ int main() {
     e2->Work(); //This will access directly the Employee class and print the method in that class unless we make the "Work()" method virtual, which we have...
     std::cout<<&developer1<<std::endl;
 }
+
