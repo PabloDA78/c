@@ -507,8 +507,25 @@ int main(){
 
 
     //Multidimensional Dynamic Arrays
-        
+    //We us "**" for pointers that point to other pointers
+    int rows=3,cols=4;
+    int ** table=new int*[rows];//Create a new integer array of pointers with "rows" amount of elements;
+    for (int i = 0; i < rows; i++)
+    {
+        table[i]= new int [cols]; //Create a new integer array that cas "cols" number of elements;
+    }
+    table[1][2]=88; //Table of row=1, col=2, has a value of 88;
+    cout<<table[1][2]<<endl;//Checking that this prints '88'
+    //Freeing memory;
+    //You have to deallocate in reverse. The pointer to the pointer goes at the end
+    for (int i = 0; i < rows; i++)
+    {
+        delete[] table[i]; //Delete the array the table[i] is pointing to.
+    }    
+    delete[] table; //Delete the array that the table variable is pointing to
+    table=NULL; //Table will not point to any address.
 
+    
 
 
     }
