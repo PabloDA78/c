@@ -246,7 +246,7 @@ int main(){
 
     //Nesting Loops
     //Enter 3 grades between 1 and 5 and return the average grade
-/*     i=0;
+    /*     i=0;
     int grade;
     float gradeSum=0;
     for (i = 0; i < 3; i++)
@@ -259,7 +259,7 @@ int main(){
          gradeSum+=grade;
     }
     cout<<"Your GPA is "<<float(gradeSum/3)<<endl;
- */
+    */
 
     //Nested For Loops
     //Multiplication Table
@@ -525,7 +525,7 @@ int main(){
     delete[] table; //Delete the array that the table variable is pointing to
     table=NULL; //Table will not point to any address.
 
-    
+
 
 
     }
