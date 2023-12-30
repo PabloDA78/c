@@ -14,6 +14,10 @@ using namespace std;
         };
 //Printing the first Linked List
 void printList(Node* n);
+//Insert an element at the front of a Linked List
+void insertAtTheFront(Node** head,int newValue);
+void insertAtTheEnd(Node** head,int newValue);
+void insertAfter(Node*previous, int newValue);
 
 int main(){
     
@@ -75,7 +79,20 @@ int main(){
         //Creating a function - printList
         printList(head);
 
-
+        //Adding elements to linked lists
+        insertAtTheFront(&head,0);//Pass the address of the head (&head) and the value that i want to insert at the top of my list (0)
+        cout<<endl;
+        printList(head);
+        
+        //Adding elements at the end of a linked list
+        insertAtTheEnd(&head,4);//Pass the address of the head (&head) and the value that i want to insert at the end of my list (4)
+        cout<<endl;
+        printList(head);
+        
+        //Add elements after an specific node
+        insertAfter(second,10);//Pass the specific node (second) and the value that i want to insert after second (10)
+        cout<<endl;
+        printList(head);
 
         
 
@@ -89,3 +106,47 @@ void printList(Node* n){
     }
     
 }
+void insertAtTheFront(Node** head,int newValue){ //Recieves the address of a pointer (**) and the newValue
+    //Prepare a newNode
+    Node* newNode = new Node();
+    newNode->Value =newValue;
+    //Put it in front of the current head
+    newNode->Next=*head;
+    //Move the head of the list to point to newNode
+    *head=newNode;
+}
+void insertAtTheEnd(Node** head,int newValue){
+    //Prepare newNode
+    Node* newNode = new Node();
+    newNode->Value = newValue;
+    newNode->Next = NULL;
+    //If linkedlist is empty, newNode is the head
+    if (*head==NULL)
+    {
+        *head=newNode;
+        return;
+    }
+    //Find the last node
+    Node* last= *head;
+    while (last->Next!=NULL)
+    {
+        last=last->Next;
+    }
+    //Insert newNode after the last node (at the end)
+    last->Next=newNode;
+}
+void insertAfter(Node*previous, int newValue){
+    //Check if the previous node is NULL
+    if (previous==NULL)
+    {
+        cout<<"Previous cannot be NULL"<<endl;
+        return;
+    }
+    //Prepare a new Node
+    Node* newNode = new Node();
+    newNode->Value=newValue;
+    //Insert newNode after the previous
+    newNode->Next=previous->Next;
+    previous->Next=newNode;
+
+    }
