@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string> // Include the necessary header for string
 #include <iomanip>
+#include <stack>
 
 using std::string;
 using namespace std;
@@ -18,6 +19,7 @@ void printList(Node* n);
 void insertAtTheFront(Node** head,int newValue);
 void insertAtTheEnd(Node** head,int newValue);
 void insertAfter(Node*previous, int newValue);
+void printStackElements(stack <int> stack);
 
 int main(){
     
@@ -95,7 +97,46 @@ int main(){
         printList(head);
 
     //STL STACK LIFO -- Stack Data Structures
-    
+    //Stack is a data collection which uses LIFO technique. LIFO = Last In, First Out or FILO = First In, Last Out
+    //Useful in featrues las "Undo /Command Z" where the last thing you did, is the first thing it undoes
+    //Functions - Empty, Size, Top, Push, Pop
+    //You have to include stack at the top of the program 
+        
+        stack <int> numbersStack;//Stack of integers  of name "numbersStack"
+        if(numbersStack.empty()){//Is the numbersStack empty?
+            cout<<"Stack is empty"<<endl;
+        } else{
+            cout<<"Stack is not empty"<<endl;
+        }
+        cout<<"Stack size is: "<<numbersStack.size()<<endl;
+        
+        //Adding elements to the stack
+
+        numbersStack.push(1);//Added 1 to the top of the stack
+        if(numbersStack.empty()){//Is the numbersStack empty?
+            cout<<"Stack is empty"<<endl;
+        } else{
+            cout<<"Stack is not empty"<<endl;
+            cout<<"The top element is: "<<numbersStack.top()<<endl;
+        }
+        cout<<"Stack size is: "<<numbersStack.size()<<endl;
+        //Adding more elements
+        numbersStack.push(2);
+        numbersStack.push(3);
+        cout<<"We added two more. Stack size is: "<<numbersStack.size()<<endl;
+        cout<<"The top element is: "<<numbersStack.top()<<endl;
+        //Removing elements from the stack
+        numbersStack.pop();
+        cout<<"We removed one element. Stack size is: "<<numbersStack.size()<<endl;
+        cout<<"The top element is: "<<numbersStack.top()<<endl;
+        //Printing elements from the stack
+        //Adding more elements
+        numbersStack.push(3);
+        numbersStack.push(4);
+        numbersStack.push(5);
+        cout<<"Adding 5 elements (1,2,3,4,5), and printing them out"<<endl;
+        printStackElements(numbersStack);//calling the printing frunction
+
 
 
 
@@ -152,3 +193,12 @@ void insertAfter(Node*previous, int newValue){
     previous->Next=newNode;
 
     }
+void printStackElements(stack <int> stack){
+    while(!stack.empty()){ //while stack is not empty (!)
+        cout<<stack.top()<<endl;
+        stack.pop();
+    }
+}
+
+
+
