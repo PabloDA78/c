@@ -257,44 +257,44 @@ int main(){
     //Uses more memory
     
 
-    //Creating the first node
+        //Creating the first node
 
-    Node2* head2; //using head 2 just because head was already created for the single linked list
-    Node2* tail;
+        Node2* head2; //using head 2 just because head was already created for the single linked list
+        Node2* tail;
 
-    Node2* node = new Node2(); //Creating a node pointer called "node" of class Node2 and allocating memory
-    node->Value=4; //Setting the value for the node
-    node->Next=nullptr; 
-    node->Previous=nullptr; //Since there is no other node it is the first and last node... points to NULL in both ways
-    head2=node;
-    tail=node;
+        Node2* node = new Node2(); //Creating a node pointer called "node" of class Node2 and allocating memory
+        node->Value=4; //Setting the value for the node
+        node->Next=nullptr; 
+        node->Previous=nullptr; //Since there is no other node it is the first and last node... points to NULL in both ways
+        head2=node;
+        tail=node;
 
-    //Adding the second node to the list
-    node = new Node2(); //Allocate space for a new node, we use the same varialbe because we have added the first node to the list and we dont need it to point there any longer
-    node->Value=5;
-    node->Next=nullptr;// Since this is the last created node it points to the null pointer
-    node->Previous=tail; //Pointing to the previous tail
-    tail->Next=node; //Previous tail now has to point to the new node
-    tail=node;//Make the node the new tail
+        //Adding the second node to the list
+        node = new Node2(); //Allocate space for a new node, we use the same varialbe because we have added the first node to the list and we dont need it to point there any longer
+        node->Value=5;
+        node->Next=nullptr;// Since this is the last created node it points to the null pointer
+        node->Previous=tail; //Pointing to the previous tail
+        tail->Next=node; //Previous tail now has to point to the new node
+        tail=node;//Make the node the new tail
 
-    //To add futher nodes.. you can copy the code for the second node and just change the values
-    node = new Node2(); 
-    node->Value=6;
-    node->Next=nullptr;
-    node->Previous=tail; 
-    tail->Next=node; 
-    tail=node;
+        //To add futher nodes.. you can copy the code for the second node and just change the values
+        node = new Node2(); 
+        node->Value=6;
+        node->Next=nullptr;
+        node->Previous=tail; 
+        tail->Next=node; 
+        tail=node;
 
-    //Traversing the list to print elements
-    cout<<"Printing forward"<<endl;
-    printForward(head2);
-    cout<<"Printing backward"<<endl;
-    printBackward(tail);
+        //Traversing the list to print elements
+        cout<<"Printing forward"<<endl;
+        printForward(head2);
+        cout<<"Printing backward"<<endl;
+        printBackward(tail);
 
-//TREE DATA STRUCTURE
+    //TREE DATA STRUCTURE
 
 
-    
+
 
 
 
