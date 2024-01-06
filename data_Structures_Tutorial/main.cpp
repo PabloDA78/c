@@ -9,7 +9,13 @@
 
 using std::string;
 using namespace std; //Using map, string and cout
-
+//Creating a structure node for a binary tree
+struct Node3{
+    int data; //Value of the node
+    Node3* left; //Pointer to the left child
+    Node3* right; //Pointer to the right child
+};
+Node3* createNode(int data); //Prototyping the function to create a node
 //Creating the Class Node2 (Doubly Linked Lists)
 
     class Node2{
@@ -29,10 +35,15 @@ using namespace std; //Using map, string and cout
 void printList(Node* n);
 //Insert an element at the front of a Linked List
 void insertAtTheFront(Node** head,int newValue);
+//Insert an element at the end of a Linked List
 void insertAtTheEnd(Node** head,int newValue);
+//Insert an element after a specific node of a Linked List
 void insertAfter(Node*previous, int newValue);
+//Printing in Stack
 void printStackElements(stack <int> stack);
+//Printing in Queue
 void printQueue(queue <int> queue);
+//Doubly Linked Lists
 void printForward(Node2* head2); //Used in doubly linked lists
 void printBackward(Node2* tail); //Used in doubly linked lists
 
@@ -292,6 +303,35 @@ int main(){
         printBackward(tail);
 
     //TREE DATA STRUCTURE
+    //Hierarchy data structure
+    //This is how you structure and organize folders
+    //A single entity of a tree is called node, the root node is the top node... it does not have a parent
+    //Connections between nodes are called edges
+    //Children nodes can´t be interconnected... the children nodes at the bottom (no more children) are leaf nodes
+    //Binary Search Tree - Binary tree with nodes that have children nodes in an specific order. Lower value on the left, higher value on the right
+
+        //Level 1
+        Node3* root=createNode(1); //Creating a root node of value 1
+        //Level 2
+        root->left=createNode(2); // Creating the left child with value 2
+        root->right=createNode(3); //Creating the right child with value 3
+        //Level 3
+        root->left->left=createNode(4);//Creating a left child to the left child with value 4 and so on
+        root->left->right=createNode(5);
+        root->right->left=createNode(6);
+        root->right->right=createNode(7);
+        //Level 4
+        root->left->right->left=createNode(9);
+        root->right->right->left=createNode(15);
+    
+        /* TRAVERSING AND SEARCHING THE TREE, ALGORITHMS */
+
+        
+    
+   
+
+
+
 
 
 
@@ -386,4 +426,15 @@ void printBackward(Node2* tail){
         traverser=traverser->Previous;
     }
 }
+Node3* createNode(int data){ //Function to create a node for the binary tree
+    Node3* newNode = new Node3();
+    newNode->data =data;
+    newNode->left= newNode->right=nullptr;
+    return newNode;   
+}
+
+
+
+
+
 
