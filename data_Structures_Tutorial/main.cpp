@@ -17,14 +17,15 @@ struct Node3{
 };
 Node3* createNode(int data); //Prototyping the function to create a node
 //Creating the Class Node2 (Doubly Linked Lists)
-
-    class Node2{
+void printTree(Node3* root);//Preorder function to print the tree
+void inorderTree(Node3* root);//Inorder function to print the tree
+void postOrderTree(Node3* root);//Postorder function to print the tree
+class Node2{
         public:
             int Value;
             Node2* Next; //Pointer to the next value
             Node2* Previous; //Pointer to the previous value
     };
-
 //Creating the class node (Linked Lists)
         class Node{
         public:
@@ -325,8 +326,29 @@ int main(){
         root->right->right->left=createNode(15);
     
         /* TRAVERSING AND SEARCHING THE TREE, ALGORITHMS */
+        //Tree traversal is the only way to access the data that is stored in the tree
+
+        //BFS Breadth-first search (Searches de width) and DFS Depth-first search (Searches the depth)
+        //3 different DFS -  Preorder, Inorder, Postorder
+
+        //Preorder (data,left,right)
+            cout<<"Pre-order DFS"<<endl;
+            printTree(root);
+        //Inorder (left,data,right)
+            cout<<"Inorder DFS"<<endl;
+            inorderTree(root);
+        //Postorder (left,right,data)
+             cout<<"Postorder DFS"<<endl;
+             postOrderTree(root);
+    
+    //STL Vector, Arrays, Dynamic Arrays and Vectors
+
+    
 
         
+
+         
+
     
    
 
@@ -431,6 +453,25 @@ Node3* createNode(int data){ //Function to create a node for the binary tree
     newNode->data =data;
     newNode->left= newNode->right=nullptr;
     return newNode;   
+}
+void printTree(Node3* root){
+    if (root==nullptr)return;//Base condition to exit the function
+    cout<<root->data<<endl;
+    printTree(root->left); //Recursive fuction that will take root left node as an argument
+    printTree(root->right);
+    
+}
+void inorderTree(Node3* root){
+    if(root==nullptr)return;
+    inorderTree(root->left);
+    cout<<root->data<<endl;
+    inorderTree(root->right);
+}
+void postOrderTree(Node3* root){
+    if(root==nullptr)return;
+    inorderTree(root->left);
+    inorderTree(root->right);
+    cout<<root->data<<endl;
 }
 
 
