@@ -5,6 +5,7 @@
 #include <queue>
 #include <map>
 #include <list>
+#include <vector>
 
 
 using std::string;
@@ -342,8 +343,76 @@ int main(){
              postOrderTree(root);
     
     //STL Vector, Arrays, Dynamic Arrays and Vectors
+    //All the benefits of dynamic arrys but with less work
+    //Vectors resize themselves automaticaly when elements are inserted or deleted
 
+        vector<int> numbersVector; //Created a vector of integers called "numbersVector"
+        //Adding elements to a vector
+        numbersVector.push_back(0);
+        for (int i = 1; i <= 10; i++)
+        {
+            numbersVector.push_back(i);
+        }
+        
+        //Access and print elements
+        cout<<"Printing the elements in the vector"<<endl;
+        for (int number:numbersVector)//For number of numbersVector
+        {
+            cout<<number<<endl;
+        }
+
+        //Iterators. Functions that point to locations in your vector (beggining and end)
+        cout<<"Printing the elements in the vector with iteratiors"<<endl;
+        for (auto it=numbersVector.begin();it!=numbersVector.end();it++)//it is iterator... go from iteratiors beggining to its end
+        {
+             cout<< *it <<endl; //We have to derreference the iterator since it is a pointer
+        }
+        
+
+        //other functionalities of vectors
+        cout<<"Other functionalities"<<endl;
+        auto it = numbersVector.begin();
+        cout<<*(it+5)<<endl;//This shows the 6th element in the vector 
+        
+        cout<<numbersVector.size()<<endl;//Current size
+        cout<<numbersVector.max_size()<<endl;//Max number of elements you can add
+        cout<<numbersVector.capacity()<<endl;//Elements you can add before resizing
+        numbersVector.resize(8);//Resize to specified size
+        cout<<numbersVector.size()<<endl;//Current size
+
+        if(numbersVector.empty()){
+            cout<<"Vector is Empty"<<endl;
+        } else{
+            cout<<"Vector is not empty"<<endl;
+        }
+
+        cout<<numbersVector[0]<<endl;//element at first position
+        cout<<numbersVector.front()<<endl;//Front element
+        cout<<numbersVector.back()<<endl;//Last element of the vector
+        numbersVector.clear();//Delete the elements in the vector
+
+        //Rebuilding the vector
+        for (int i = 1; i <= 10; i++)
+        {
+            numbersVector.push_back(i);
+        }
+        //Insert elements at an specific position
+        numbersVector.insert(numbersVector.begin()+5,88);//Insert an element at the 6th position with the number 88
+        //printing the elements
+        for (auto n:numbersVector){
+            cout<<n<<endl;
+        }
+        //Remove an element at an specific position
+        numbersVector.erase(numbersVector.begin()+5);//Erase an element at the 6th position with the number 88
+        //printing the elements
+        for (auto n:numbersVector){
+            cout<<n<<endl;
+        }
+        numbersVector.pop_back();//This removes an element from the end of the vector 
+
+        
     
+        
 
         
 
