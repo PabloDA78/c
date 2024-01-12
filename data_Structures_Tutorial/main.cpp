@@ -28,7 +28,7 @@ class Node2{
             Node2* Previous; //Pointer to the previous value
     };
 //Creating the class node (Linked Lists)
-        class Node{
+class Node{
         public:
             int Value;//Value of the node
             Node* Next;//Pointer to the next value
@@ -48,6 +48,24 @@ void printQueue(queue <int> queue);
 //Doubly Linked Lists
 void printForward(Node2* head2); //Used in doubly linked lists
 void printBackward(Node2* tail); //Used in doubly linked lists
+
+class Student{
+public:
+    string Name;
+    int Age;
+    char Gender;
+    float ProgrammingGrade;
+    //Creating a constructor
+    Student(){}
+    Student(string name,int age, char gender, float programmingGrade){
+        Name=name;
+        Age=age;
+        Gender=gender;
+        ProgrammingGrade=programmingGrade;
+    }
+};
+
+void printStudents(Student* students, int size);
 
 int main(){
     
@@ -410,9 +428,121 @@ int main(){
         }
         numbersVector.pop_back();//This removes an element from the end of the vector 
 
+    //ARRAYS OF OBJECTS
+
+        int luckyNumbers[5]={3,17,21,25,32}; //Array of primitive data type
         
+
+        //Creating an array of objects of class student
+
+        Student students[3]={ //Array of 3 students
+            {"Pablo",27,'m',9.5},
+            {"Petra",29,'f',10},
+            {"Juan",22,'m',7}
+        };  
+
+        //If you want the user to initialize the values
+            /* Student students[3];
+            for (int i = 0; i < 3; i++)
+            {
+                cout<<"STUDENT: "<<i+1<<endl;
+                Student s;
+                cout<<"Name: ";
+                cin>>s.Name;
+                cout<<"Age: ";
+                cin>>s.Age;
+                cout<<"Gender: ";
+                cin>>s.Gender;
+                cout<<"Programming Grade: ";
+                cin>>s.ProgrammingGrade;
+                students[i]=s;
+            } */
+        
+        //Accessing properties of individual objects in the array
+
+        cout<<"Programming grade of "<<students[0].Name<<" is "<<students[0].ProgrammingGrade<<endl;
+        cout<<"Programming grade of "<<students[1].Name<<" is "<<students[1].ProgrammingGrade<<endl;
+        cout<<"Programming grade of "<<students[2].Name<<" is "<<students[2].ProgrammingGrade<<endl;
+
+        //Making calculations within the objects
+        //Average of the students
+        float gradeSum=0;
+        float classAverage;
+        int sizeOfClass=0;
+        for (int i = 0; i < 3; i++)
+        {
+            gradeSum+=students[i].ProgrammingGrade;
+            sizeOfClass++;
+        }
+     
+        classAverage=gradeSum/(float)sizeOfClass;
+        cout<<"The class average is "<<fixed<<setprecision(2)<<classAverage<<endl;
+    
+
+    //DYNAMIC ARRAY OF OBJECTS
+        /* int size;
+        cout << "Number of students: ";
+        cin >> size;
+
+        Student* studentsDyn = new Student[size]; // Pointer to Student to make it dynamic in size
+
+        for (int i = 0; i < size; i++) {
+            cout << "STUDENT: " << i + 1 << endl;
+            Student s;
+            cout << "Name: ";
+            cin >> s.Name;
+            cout << "Age: ";
+            cin >> s.Age;
+            cout << "Gender: ";
+            cin >> s.Gender;
+            cout << "Programming Grade: ";
+            cin >> s.ProgrammingGrade;
+            studentsDyn[i] = s;
+        }
+
+        char choice;
+        cout<<"Do you want a bigger array?"<<endl;
+        cin>>choice;
+        if(choice=='n' || choice=='N'){
+            delete [] studentsDyn;
+            return 0;
+        }
+
+        int newSize;
+        cout<<"Enter new size: ";
+        cin>>newSize;
+
+        Student* newStudents = new Student[newSize];
+        //memcpy(newStudents,studentsDyn,sizeof(Student)*size);//(Destination,Previous Array,size) Auto Copy the elements from the previous array
+        for (int  i = 0; i < size; i++) //Manual way
+        {
+            newStudents[i]=studentsDyn[i];
+        }
+        delete [] studentsDyn;
+        studentsDyn=newStudents;
+        
+        for (int i = size; i < newSize; i++) {
+            cout << "STUDENT: " << i + 1 << endl;
+            Student s;
+            cout << "Name: ";
+            cin >> s.Name;
+            cout << "Age: ";
+            cin >> s.Age;
+            cout << "Gender: ";
+            cin >> s.Gender;
+            cout << "Programming Grade: ";
+            cin >> s.ProgrammingGrade;
+            studentsDyn[i] = s;
+        }
+        printStudents(studentsDyn, newSize);
+        delete[] studentsDyn; // Delete Array of studentsDyn...You have to free memory with delete */
+
+
     
         
+       
+
+
 
         
 
@@ -542,7 +672,17 @@ void postOrderTree(Node3* root){
     inorderTree(root->right);
     cout<<root->data<<endl;
 }
-
+void printStudents(Student* students, int size){
+    for (int i = 0; i < size; i++)
+    {
+        cout<<"Info for Student: "<<i<<endl;
+        cout<<"Student's Name: "<<students[i].Name<<endl;
+        cout<<"Student's Age: "<<students[i].Age<<endl;
+        cout<<"Student's Gender: "<<students[i].Gender<<endl;
+        cout<<"Student's Programming Grade: "<<students[i].ProgrammingGrade<<endl;
+    }
+    
+}
 
 
 
