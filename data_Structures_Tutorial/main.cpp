@@ -6,6 +6,7 @@
 #include <map>
 #include <list>
 #include <vector>
+#include <algorithm>
 
 
 using std::string;
@@ -64,6 +65,8 @@ public:
         ProgrammingGrade=programmingGrade;
     }
 };
+bool compareByGrade(const Student& s1, const Student& s2); //Used in algorithms
+bool compareByName(const Student& s1, const Student& s2);
 
 void printStudents(Student* students, int size);
 
@@ -437,8 +440,8 @@ int main(){
 
         Student students[3]={ //Array of 3 students
             {"Pablo",27,'m',9.5},
-            {"Petra",29,'f',10},
-            {"Juan",22,'m',7}
+            {"Alejandro",29,'f',5},
+            {"Juan",22,'m',6}
         };  
 
         //If you want the user to initialize the values
@@ -537,11 +540,57 @@ int main(){
         printStudents(studentsDyn, newSize);
         delete[] studentsDyn; // Delete Array of studentsDyn...You have to free memory with delete */
 
+    //ARRAY OF OBJECTS ALGORITHMS
 
-    
-        
+        //Searching Objects in the Array
+
+        //Look for Pablo and change its grade
+        for (int i = 0; i < 3; i++)
+        {
+            if(students[i].Name=="Pablo"){
+                students[i].ProgrammingGrade=5.5;
+                cout<<"Pablo's grade is now "<<students[0].ProgrammingGrade<<endl;
+                break;
+            }
+        }
+
+        //Sorting Algorithm
+        //Library: #include <algorithm>
+        cout<<endl<<"Sorting algorithms"<<endl<<endl;
+        for (int i = 0; i < 3; i++)//Unsorted
+        {
+            cout<<"Student "<<i<<": "<<students[i].Name<<" Grade: "<<students[i].ProgrammingGrade<<endl;
+        }
+        cout<<endl<<endl;
+        //Sorting by grade
+        sort(students,students+3,compareByGrade);//Takes as a parameter: pointer to the beginning of the array,pointer to the last element, custom method to sort them
+        for (int i = 0; i < 3; i++)//Sorted
+        {
+            cout<<"Student "<<i<<": "<<students[i].Name<<" Grade: "<<students[i].ProgrammingGrade<<endl;
+        }
+        //Sorting by Name
+        cout<<"Sort by Name: "<<endl<<endl;
+        sort(students,students+3,compareByName);
+        for (int i = 0; i < 3; i++)//Sorted
+        {
+            cout<<"Student "<<i<<": "<<students[i].Name<<endl;
+        }
+        //Reversing Array
+        cout<<"Reversing Array "<<endl<<endl;
+        reverse(students,students+3);//Parameters, pointer to the beggining, pointer to the end
+        for (int i = 0; i < 3; i++)//Sorted
+        {
+            cout<<"Student "<<i<<": "<<students[i].Name<<endl;
+        }
+        //Finding min in an array
+        Student* minGradeStudent = min_element(students,students+3,compareByGrade);
+        cout<<"Min element: "<<minGradeStudent->ProgrammingGrade<<endl<<endl; //Parameters, beggining, end of array, custom method. It returns the pointer to min element
+        Student* maxGradeStudent = max_element(students,students+3,compareByGrade);
+        cout<<"Max element: "<<maxGradeStudent->ProgrammingGrade<<endl<<endl; //Parameters, beggining, end of array, custom method. It returns the pointer to min element
        
+    //ADVANCED INHERITANCE AND POLYMORPHISM
 
+        
 
 
         
@@ -683,8 +732,13 @@ void printStudents(Student* students, int size){
     }
     
 }
-
-
-
+bool compareByGrade(const Student& s1, const Student& s2){ //Method to compare 2 students by grade, passing by reference so it doesnt make a copy, const so the function cant change the object
+    return s1.ProgrammingGrade<s2.ProgrammingGrade; //From lowest to highest
+   //return s1.ProgrammingGrade>s2.ProgrammingGrade; //From highest to lowest
+}
+bool compareByName(const Student& s1, const Student& s2){ //Method to compare 2 students by name, passing by reference so it doesnt make a copy, const so the function cant change the object
+    return s1.Name<s2.Name; //From a to z
+    //return s1.Name>s2.Name; //From z to a
+}
 
 
