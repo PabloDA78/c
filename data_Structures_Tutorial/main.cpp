@@ -67,8 +67,10 @@ public:
 };
 bool compareByGrade(const Student& s1, const Student& s2); //Used in algorithms
 bool compareByName(const Student& s1, const Student& s2);
-
 void printStudents(Student* students, int size);
+
+
+
 
 int main(){
     
