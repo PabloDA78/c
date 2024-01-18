@@ -69,6 +69,39 @@ bool compareByGrade(const Student& s1, const Student& s2); //Used in algorithms
 bool compareByName(const Student& s1, const Student& s2);
 void printStudents(Student* students, int size);
 
+// Base class
+class Students {
+public:
+    string Name;
+    int Age;
+    char Gender;
+    virtual void Study() = 0; // Pure virtual function
+    virtual ~Students() = default; // Virtual destructor
+};
+
+// Derived class 1
+class ProgrammingStudent : public Students {
+public:
+    void Study() override {
+        cout << "Learning Programming" << endl;
+    }
+};
+
+// Derived class 2
+class ArtsStudent : public Students {
+public:
+    void Study() override {
+        cout << "Learning to paint" << endl;
+    }
+};
+
+// Derived class 3
+class MusicStudent : public Students {
+public:
+    void Study() override {
+        cout << "Learning to play piano" << endl;
+    }
+};
 
 
 
@@ -592,6 +625,23 @@ int main(){
        
     //ADVANCED INHERITANCE AND POLYMORPHISM
 
+        //Create an array of pointers
+        Students* studentsArray[3];
+
+        // Corrected instances creation
+        studentsArray[0] = new ProgrammingStudent();
+        studentsArray[1] = new ArtsStudent();
+        studentsArray[2] = new MusicStudent();
+
+        // Corrected loop
+        for (int i = 0; i < 3; i++) {
+            studentsArray[i]->Study();
+        }
+
+        // Corrected deletion
+        for (int i = 0; i < 3; i++) {
+            delete studentsArray[i];
+        }
 
         
 
